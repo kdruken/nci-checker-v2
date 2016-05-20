@@ -15,13 +15,12 @@ class HDF5Checker(Checker):
             with h5py.File(self.path, 'r') as h5f:
                 if h5f != None:
                     self.result = True
-                    self.score = "PASS"
+                    self.score = True
                 else:
-                    self.score = "FAIL"
+                    self.score = False
 
         except:
-            self.score = "FAIL"
+            self.score = False
 
 
-        # return self.to_json()
         return self.dict

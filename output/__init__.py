@@ -1,2 +1,2 @@
 #!/usr/bin/env python
-from output import *
+from output import Output

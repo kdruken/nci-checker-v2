@@ -16,8 +16,8 @@ class NetCDF4Checker(Checker):
             meta = netcdf4Checker(self.path)
             meta.check()
             self.result = meta.meta
-            self.score = "PASS"
+            self.score = True
         except:
-            self.score = "FAIL"
+            self.score = False
 
         return self.dict

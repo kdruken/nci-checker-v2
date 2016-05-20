@@ -3,21 +3,29 @@ NCI-CHECKER
 v20160518 
 
 
-PATH:  /Users/kdruken/Downloads/IR_gravity_anomaly_Australia_V1.nc
-Date:  2016-05-20-104928
-
-
-
-The following report provides an overview of data compliance and functionality 
-with Climate and Forecast (CF) Convention and Attribute Convention for Data
-Discovery (ACDD) standards as well as core tools/libraries (e.g., GDAL, netCDF4,
+The nci-checker provides an overview of data compliance with the Climate and 
+Forecast (CF) Convention and Attribute Convention for Data Discovery (ACDD) 
+standards as well as functionality core tools/libraries (e.g., GDAL, netCDF4,
 python APIs).
 
-For help with data compliance, refer to the following CF and ACDD guides:
+
+** Please note **: 
+
+CF Compliance is checked using the University of Reading 'cf-checker'
+by Rosalyn Hatcher (https://github.com/cedadev/cf-checker/wiki) and as such
+this product includes code developed by the University of Reading and its 
+contributors.
+
+For further information on CF and ACDD standards and guides:
 	 http://cfconventions.org/documents.html 
 	 http://wiki.esipfed.org/index.php/Attribute_Convention_for_Data_Discovery_1-3 
  
  
+__________________________________________________________________________________________
+NCI-CHECKER REPORT 
+
+PATH:  /Users/kdruken/github/Interop/Elevation_1secSRTM_DEMs_v1.0_DEM-S_Mosaic_dems1sv1_0.nc
+Date:  2016-05-20-165429
 __________________________________________________________________________________________
 
 
@@ -29,10 +37,10 @@ ________________________________________________________________________________
                   ::CHECK::                                    ::SCORE::                  
 
             netCDF4-python 1.2.4                                 PASS                     
-                 ACDD (v1.3)                                     100.0                    
-              cfchecker v2.0.9                                     0                      
+                  ACDD v1.3                                       0%                      
+              cfchecker v2.0.9                                    0%                      
                  GDAL 2.0.0                                      FAIL                     
-                 h5py 2.5.0                                      FAIL                     
+                 h5py 2.5.0                                       0%                      
 
 
 
@@ -40,7 +48,7 @@ ________________________________________________________________________________
 
 
 ------------------------------------------------------------------------------------------
-                                    CF Checker Results                                    
+               CF Checker Results (https://pypi.python.org/pypi/cfchecker)                
 ------------------------------------------------------------------------------------------
 
          ::Variable::                         ::Messages::                    ::Score::   
@@ -51,8 +59,12 @@ ________________________________________________________________________________
              lon                                                                 0%       
                               ERROR (3.1): Invalid units:  degrees_east                   
  
-       IR_gravity_anoma                                                          0%       
-                              ERROR (3.1): Invalid units:  um/s^2                         
+          elevation                                                              0%       
+                              ERROR: Invalid attribute name - vrs-uri                     
+                              ERROR: Invalid attribute name - units-uri                   
+                              ERROR (3.1): Invalid units:  "metre"                        
+                              ERROR (4.3): Invalid value for positive attribute               
+                              INFO: attribute 'positive' is being used in a non-standard way               
  
            (global)                                                              0%       
                               ERROR (5.6): grid_mapping attribute referencing non-existent variable crs               
@@ -62,50 +74,50 @@ ________________________________________________________________________________
 ------------------------------------------------------------------------------------------
           ::Attribute::                                          ::Score::           
 REQUIRED
-          title                                                     100%             
-          summary                                                   100%             
-          source                                                    100%             
-          date_created                                              100%             
+          title                                                      0%              
+          summary                                                    0%              
+          source                                                     0%              
+          date_created                                               0%              
 
 RECOMMENDED
-          product_version                                           100%             
-          metadata_link                                             100%             
-          license                                                   100%             
-          institution                                               100%             
           history                                                   100%             
           Conventions                                               100%             
           project                                                    0%              
+          product_version                                            0%              
           processing_level                                           0%              
           platform                                                   0%              
+          metadata_link                                              0%              
+          license                                                    0%              
           instrument                                                 0%              
+          institution                                                0%              
           doi                                                        0%              
 
 SUGGESTED
-          keywords_vocabulary                                       100%             
-          keywords                                                  100%             
-          id                                                        100%             
-          geospatial_lon_units                                      100%             
-          geospatial_lon_resolution                                 100%             
           geospatial_lon_min                                        100%             
           geospatial_lon_max                                        100%             
-          geospatial_lat_units                                      100%             
-          geospatial_lat_resolution                                 100%             
           geospatial_lat_min                                        100%             
           geospatial_lat_max                                        100%             
-          geospatial_bounds_crs                                     100%             
-          geospatial_bounds                                         100%             
-          date_modified                                             100%             
           time_coverage_start                                        0%              
           time_coverage_resolution                                   0%              
           time_coverage_end                                          0%              
           time_coverage_duration                                     0%              
           references                                                 0%              
+          keywords_vocabulary                                        0%              
+          keywords                                                   0%              
+          id                                                         0%              
           geospatial_vertical_units                                  0%              
           geospatial_vertical_resolution                             0%              
           geospatial_vertical_positive                               0%              
           geospatial_vertical_min                                    0%              
           geospatial_vertical_max                                    0%              
+          geospatial_lon_units                                       0%              
+          geospatial_lon_resolution                                  0%              
+          geospatial_lat_units                                       0%              
+          geospatial_lat_resolution                                  0%              
           geospatial_bounds_vertical_crs                             0%              
+          geospatial_bounds_crs                                      0%              
+          geospatial_bounds                                          0%              
+          date_modified                                              0%              
           date_issued                                                0%              
 
 
@@ -129,7 +141,7 @@ SUGGESTED
 ------------------------------------------------------------------------------------------
           ::Check::                                              ::Result::          
  
-          Coord_vars_defined                                         1               
-          Multiple_stdnames                                          0               
+          Coord_vars_defined                                        Yes              
+          Multiple_stdnames                                          No              
           Conventions                                      (No conventions used)     
           Format                                              NETCDF3_CLASSIC        

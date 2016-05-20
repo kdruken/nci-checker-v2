@@ -15,7 +15,7 @@ Options:
 import checkers
 import sys, os
 from datetime import datetime
-import output
+from output import Output
 
 
 
@@ -34,7 +34,7 @@ def main():
         sys.exit('No file specified or path does not exist.')
 
 
-    print 'Checking: ', path, '\n'
+    print 'Checking: ', os.path.abspath(path), '\n'
 
     checks = {
                 'cf': checkers.CFChecker(path),
@@ -47,7 +47,7 @@ def main():
     for item in checks.keys():
         checks[item] = checks[item].check()
 
-    out = output.Output(path, checks)
+    out = Output(path, checks)
 
     if os.path.isfile(path):
         out.simple_report()

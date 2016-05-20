@@ -88,12 +88,10 @@ class cfwrapper:
                             self.cf['(global)']['warning'].append(line)
                         else:
                             self.cf[var]['warning'].append(line)
-                        print line
 
                     # Checking info messages
                     if line.find('INFO') != -1:
                         self.cf[var]['info'].append(line)
-                        print line
 
             # Calculate score
             for key, value in self.cf.items():
@@ -105,12 +103,3 @@ class cfwrapper:
 
 
 
-
-
-if __name__ == "__main__":
-    path = '/Users/kdruken/Downloads/IR_gravity_anomaly_Australia_V1.nc'
-    cf = cfwrapper(path)
-    print cf.path
-    result = cf.check()
-    # print result
-    print cf.cf

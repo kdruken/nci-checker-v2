@@ -18,18 +18,12 @@ class CFChecker(Checker):
         cfcheck.check()
         self.result = cfcheck.cf
         if self.result == None:
-            self.score = "FAIL"
+            self.score = False
         else:
             self.score = 0
             for var, values in cfcheck.cf.items():
                 self.score += values['score']
             self.score = self.score/len(cfcheck.cf.items())*100
-
-            # for var, values in cfcheck.cf.items():
-            #     if values['error']:
-            #         self.score[var] = 0
-            #     else:
-            #         self.score[var] = 100
 
 
         return self.dict

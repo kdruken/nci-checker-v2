@@ -96,10 +96,3 @@ def sug():
         ]
 
 
-
-if __name__ == "__main__":
-    path = '/Users/kdruken/Downloads/IR_gravity_anomaly_Australia_V1.nc'
-    acdd = acddChecker(path)
-    acdd.check()
-    print acdd.path
-    print acdd.acdd

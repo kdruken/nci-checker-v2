@@ -13,7 +13,7 @@ class ACDDChecker(Checker):
     #
     def __init__(self, path):
         Checker.__init__(self, path)
-        self.type = "ACDD {}".format('(v1.3)')
+        self.type = "ACDD {}".format('v1.3')
 
     def check(self):
         try:
